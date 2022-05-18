@@ -5,7 +5,7 @@
 \title{Retrieve prevalence of lineages by location}
 \usage{
 getAllLineagesByLocation(
-  location,
+  iso3,
   other_threshold = 0.05,
   nday_threshold = 10,
   ndays = 180,
@@ -14,8 +14,6 @@ getAllLineagesByLocation(
 )
 }
 \arguments{
-\item{location}{a location name}
-
 \item{other_threshold}{minimum prevalence threshold below which lineages are accumulated under "Other" (default=0.05)}
 
 \item{nday_threshold}{minimum number of days in which the prevalence of a lineage must be below other_threshold to be accumulated under "Other" (default=10)}
@@ -25,6 +23,8 @@ getAllLineagesByLocation(
 \item{other_exclude}{(optional) lineage(s) that are NOT to be included under "Other" even if the conditions specified by the three thresholds above are met}
 
 \item{cumulative}{`Boolean` (T/F), T returns cumulative prevalence of lineages (default=F)}
+
+\item{location}{a location name}
 }
 \value{
 dataframe

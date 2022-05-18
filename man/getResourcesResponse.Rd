@@ -40,7 +40,7 @@ Access outbreak.info Research Library API
 # Return only the first 10 hits for "ivermectin"
 df = getResourcesResponse("ivermectin", size = 10)
 
-# Find the first 10 results which contain the variable `topicCategory`  
+# Find the first 10 results which contain the variable `topicCategory`
 df = getResourcesResponse("_exists_:topicCategory", size = 10)
 
 # Get `date`/`name` from the first 10 hits for the query "ivermectin" plus a count of the `@type` field for ALL results
