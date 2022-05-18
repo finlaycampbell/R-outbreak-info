@@ -6,7 +6,7 @@
 \usage{
 getGenomicData(
   query_url,
-  location = NULL,
+  iso3 = NULL,
   cumulative = NULL,
   pangolin_lineage = NULL,
   mutations = NULL,

@@ -18,6 +18,6 @@
 #' @export
 
 getAllLineagesByLocation <- function(iso3, other_threshold=0.05, nday_threshold=10, ndays=180, other_exclude=NULL, cumulative=F){
-  df <- getGenomicData2(query_url="prevalence-by-location-all-lineages", iso3 = iso3, other_threshold = other_threshold, nday_threshold = nday_threshold, ndays = ndays, other_exclude = other_exclude, cumulative = cumulative)
+  df <- getGenomicData(query_url="prevalence-by-location-all-lineages", iso3 = iso3, other_threshold = other_threshold, nday_threshold = nday_threshold, ndays = ndays, other_exclude = other_exclude, cumulative = cumulative)
   return(df)
 }
