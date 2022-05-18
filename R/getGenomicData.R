@@ -11,7 +11,7 @@
 #' head(uk_b117)
 
 getGenomicData <- function(query_url, location=NULL, cumulative=NULL, pangolin_lineage=NULL, mutations=NULL, ndays=NULL, frequency=NULL, subadmin=NULL, other_threshold=NULL, nday_threshold=NULL, other_exclude=NULL, logInfo=TRUE){
-
+  browser()
     genomic_url <- "https://api.outbreak.info/genomics/"
 
     q <- c()
@@ -26,6 +26,7 @@ getGenomicData <- function(query_url, location=NULL, cumulative=NULL, pangolin_l
         }
         q <- c(q, paste0("location_id=", location, "&"))
     }
+
     if(!is.null(cumulative)){
         if (!is.logical(cumulative)){
             stop("cumulative must be in Boolean format")

@@ -38,7 +38,7 @@ getGenomicsResponse <- function(dataurl, logInfo = T, logWarning = T, logError =
             } else if (resp$status_code == 403) {
                 warning("Invalid token. Please reauthenticate by calling the authenticateUser() function.\n")
             } else if(resp$status_code == 500){
-                warning("There was an internal server error. Please cross check your query or contact help@outbreak.info for further assistance.\n")
+                ## warning("There was an internal server error. Please cross check your query or contact help@outbreak.info for further assistance.\n")
             } else if(resp$status_code == 429){
                 warning("You have exceeded the API usage limit. Please limit the usage to 1 request/minute.\n")
             } else if (resp$status_code == 400){
