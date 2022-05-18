@@ -12,9 +12,6 @@ getGenomicsResponse <- function(dataurl, logInfo = T, logWarning = T, logError =
     success <- NULL
     while(is.null(success)){
         success <- FALSE
-        if(logInfo){
-            cat("Retrieving data...", "\n")
-        }
         dataurl <- ifelse(is.null(scroll.id), dataurl, paste0(dataurl, "&scroll_id=", scroll.id))
         dataurl <- URLencode(dataurl)
         resp <- NULL
