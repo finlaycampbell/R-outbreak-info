@@ -4,8 +4,8 @@
 #'
 #' @param token A String representing the token to be stored
 #'
-#' @noRd
-
+#' @export
+#'
 setAuthToken <- function(token){
     wd <- getwd()
     tryCatch({
