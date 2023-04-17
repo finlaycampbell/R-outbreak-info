@@ -12,6 +12,9 @@ getGenomicsResponse <- function(dataurl, logInfo = T, logWarning = T, logError =
   success <- NULL
   while(is.null(success)){
     success <- FALSE
+    if(logInfo){
+      cat("Retrieving data...", "\n")
+    }
     dataurl <- ifelse(is.null(scroll.id), dataurl, paste0(dataurl, "&scroll_id=", scroll.id))
     dataurl <- URLencode(dataurl)
     resp <- NULL
@@ -40,6 +43,8 @@ getGenomicsResponse <- function(dataurl, logInfo = T, logWarning = T, logError =
         warning("You have exceeded the API usage limit. Please limit the usage to 1 request/minute.\n")
       } else if (resp$status_code == 400){
         warning("Malformed token. Please reauthenticate by calling the authenticateUser() function.\n")
+      } else if (resp$status_code == 414){
+        warning("Your requested API URL is too long (> 2000 characters). This commonly happens when you add too many lineages and/or locations. Please try breaking up a single call into multiple requests.\n")
       } else if(resp$status_code == 200){
         resp <- fromJSON(content(resp, "text"), flatten=TRUE)
         if(length(resp$results) > 0) resp_df <- convert_list_to_dataframe(resp$results) else resp_df <- data.frame()
@@ -80,6 +85,7 @@ convert_list_to_dataframe <- function(list_obj){
   res <- lapply(query_keys,
                 function(query_key) {
                   d <- list_obj[[query_key]]
+                  d <- d[!sapply(d, is.null)]
                   if(class(d) == "data.frame"){
                     d$query_key <- query_key
                   } else {

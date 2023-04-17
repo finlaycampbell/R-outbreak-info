@@ -5,3 +5,5 @@
 .DS_Store
 .Rproj.user
 data/*
+*~
+.R_outbreak-info-token
